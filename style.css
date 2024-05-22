@@ -1,0 +1,59 @@
+body{
+    width: 60%;
+    margin: 0 auto;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+    text-align: center;
+}
+picture{
+    width: 100%;
+    display: flex;
+    /* animation: appear linear;
+    /* animation-timeline: view(0); */
+    /* animation-timeline: scroll(); */
+    /* animation-timeline: auto; */
+    
+    /* Animation range nos setea el lugar desde donde queremos que se vea la imagen */
+    /* animation-range: 0% 100%; */
+    /* animation-range: entry; */
+    
+    animation: appear linear;
+    animation-timeline: view(0);
+    animation-range: entry 20% contain 10%;
+    /* animation-fill-mode nos permite que la animacion se quede en el estado final */
+    animation-fill-mode: both;
+}
+picture:nth-child(odd){
+    justify-content: start;
+}
+picture:nth-child(even){
+    justify-content: end;
+}
+.item_description{
+    display: flex; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.item_description:nth-child(odd){
+    flex-direction: row-reverse;
+}
+.item_description picture{
+    justify-content: center;
+}
+.item_description picture .image{
+    height: 200px;
+}
+@keyframes appear{
+    from{
+        opacity: 0;
+        scale: 25%;
+        clip-path: inset(100% 100% 0% 0%);
+    }
+    to{
+        opacity: 1;
+        scale: 100%;
+        clip-path: inset(0% 0% 0% 0%);
+    }
+}
